@@ -127,7 +127,7 @@ function EFL:InsertOptions()
 					nameFontSize = {
 						order = 2,
 						type = "range",
-						name = L["Font Size"],
+						name = FONT_SIZE,
 						min = 6, max = 22, step = 1,
 						set = function(info, value) E.db.enhanceFriendsList.nameFontSize = value; EFL:EnhanceFriends() end
 					},
@@ -137,7 +137,7 @@ function EFL:InsertOptions()
 						name = L["Font Outline"],
 						desc = L["Set the font outline."],
 						values = {
-							["NONE"] = L["None"],
+							["NONE"] = NONE,
 							["OUTLINE"] = "OUTLINE",
 							["MONOCHROMEOUTLINE"] = "MONOCROMEOUTLINE",
 							["THICKOUTLINE"] = "THICKOUTLINE",
@@ -162,7 +162,7 @@ function EFL:InsertOptions()
 					zoneFontSize = {
 						order = 2,
 						type = "range",
-						name = L["Font Size"],
+						name = FONT_SIZE,
 						min = 6, max = 22, step = 1,
 						set = function(info, value) E.db.enhanceFriendsList.zoneFontSize = value; EFL:EnhanceFriends() end
 					},
@@ -172,7 +172,7 @@ function EFL:InsertOptions()
 						name = L["Font Outline"],
 						desc = L["Set the font outline."],
 						values = {
-							["NONE"] = L["None"],
+							["NONE"] = NONE,
 							["OUTLINE"] = "OUTLINE",
 							["MONOCHROMEOUTLINE"] = "MONOCROMEOUTLINE",
 							["THICKOUTLINE"] = "THICKOUTLINE",

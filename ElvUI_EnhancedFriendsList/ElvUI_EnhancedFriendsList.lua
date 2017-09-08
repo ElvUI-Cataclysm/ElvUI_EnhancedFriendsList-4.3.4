@@ -65,7 +65,7 @@ end
 
 function EFL:InsertOptions()
 	E.Options.args.enhanceFriendsList = {
-		order = 51.1,
+		order = 54,
 		type = "group",
 		name = ColorizeSettingName(L["Enhanced Friends List"]),
 		get = function(info) return E.db.enhanceFriendsList[ info[#info] ] end,

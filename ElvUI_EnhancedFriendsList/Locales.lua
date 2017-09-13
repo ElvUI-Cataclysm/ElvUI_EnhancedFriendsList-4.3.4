@@ -6,6 +6,7 @@ L["Colorize Name Only"] = true;
 L["Enhanced Friends List"] = true;
 L["Enhanced Name"] = true;
 L["Enhanced Status"] = true;
+L["Enhanced Zone Color"] = true;
 L["Enhanced Zone"] = true;
 L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 L["Hide Class Text"] = true;
@@ -17,6 +18,7 @@ L["Name Font Outline"] = true;
 L["Offline Friends"] = true;
 L["Online Friends"] = true;
 L["Same Zone Color"] = true;
+L["Same Zone"] = true;
 L["SHORT_LEVEL"] = "L"
 L["Short Level"] = true;
 L["Show Background"] = true;
@@ -37,6 +39,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -48,6 +51,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;
@@ -67,6 +71,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -78,6 +83,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;
@@ -97,6 +103,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -108,6 +115,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;
@@ -127,6 +135,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -138,6 +147,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;
@@ -157,6 +167,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -168,6 +179,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;
@@ -187,6 +199,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -198,6 +211,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;
@@ -217,6 +231,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -228,6 +243,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;
@@ -247,6 +263,7 @@ if L then
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
 	L["Enhanced Status"] = true;
+	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
 	L["Hide Class Text"] = true;
@@ -258,6 +275,7 @@ if L then
 	L["Offline Friends"] = true;
 	L["Online Friends"] = true;
 	L["Same Zone Color"] = true;
+	L["Same Zone"] = true;
 	L["SHORT_LEVEL"] = "L"
 	L["Short Level"] = true;
 	L["Show Background"] = true;

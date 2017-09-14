@@ -595,7 +595,7 @@ function EFL:EnhanceFriends()
 							button.info:SetTextColor(db.enhancedZoneColor.r, db.enhancedZoneColor.g, db.enhancedZoneColor.b)
 						end
 					else
-						button.info:SetTextColor(1, 0.96, 0.45)
+						button.info:SetTextColor(db.enhancedZoneColor.r, db.enhancedZoneColor.g, db.enhancedZoneColor.b)
 					end
 				else
 					if db.sameZone then

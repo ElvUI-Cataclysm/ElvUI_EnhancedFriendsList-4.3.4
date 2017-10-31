@@ -25,7 +25,7 @@ L["Show Last Seen"] = true;
 L["Show Level"] = true;
 L["Show Status Icon"] = true;
 L["Show Zone"] = true;
-L["Status Icon Textures"] = true
+L["Status Icons Textures"] = true
 L["Zone Font"] = true;
 L["Zone Font Size"] = true;
 L["Zone Font Outline"] = true;
@@ -58,7 +58,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -90,7 +90,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -122,7 +122,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -154,7 +154,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -186,7 +186,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -218,7 +218,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -250,7 +250,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -282,7 +282,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
-	L["Status Icon Textures"] = true
+	L["Status Icons Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;

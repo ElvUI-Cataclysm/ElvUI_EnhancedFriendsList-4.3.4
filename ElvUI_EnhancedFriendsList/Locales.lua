@@ -5,7 +5,6 @@ if not L then return end
 L["Colorize Name Only"] = true;
 L["Enhanced Friends List"] = true;
 L["Enhanced Name"] = true;
-L["Enhanced Status"] = true;
 L["Enhanced Zone Color"] = true;
 L["Enhanced Zone"] = true;
 L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -26,6 +25,7 @@ L["Show Last Seen"] = true;
 L["Show Level"] = true;
 L["Show Status Icon"] = true;
 L["Show Zone"] = true;
+L["Status Icon Textures"] = true
 L["Zone Font"] = true;
 L["Zone Font Size"] = true;
 L["Zone Font Outline"] = true;
@@ -38,7 +38,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -59,6 +58,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -70,7 +70,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -91,6 +90,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -102,7 +102,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -123,6 +122,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -134,7 +134,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -155,6 +154,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -166,7 +166,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -187,6 +186,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -198,7 +198,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -219,6 +218,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -230,7 +230,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -251,6 +250,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;
@@ -262,7 +262,6 @@ if L then
 	L["Colorize Name Only"] = true;
 	L["Enhanced Friends List"] = true;
 	L["Enhanced Name"] = true;
-	L["Enhanced Status"] = true;
 	L["Enhanced Zone Color"] = true;
 	L["Enhanced Zone"] = true;
 	L["Friends that are in the same area as you, have their zone info colorized green."] = true;
@@ -283,6 +282,7 @@ if L then
 	L["Show Level"] = true;
 	L["Show Status Icon"] = true;
 	L["Show Zone"] = true;
+	L["Status Icon Textures"] = true
 	L["Zone Font"] = true;
 	L["Zone Font Size"] = true;
 	L["Zone Font Outline"] = true;

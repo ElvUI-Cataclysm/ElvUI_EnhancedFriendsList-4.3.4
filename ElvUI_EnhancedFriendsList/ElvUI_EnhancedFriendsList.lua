@@ -2,7 +2,7 @@ local E, L, V, P, G = unpack(ElvUI)
 local EFL = E:NewModule("EnhancedFriendsList")
 local EP = LibStub("LibElvUIPlugin-1.0")
 local LSM = LibStub("LibSharedMedia-3.0", true)
-local addonName = "ElvUI_EnhancedFriendsList"
+local addonName = ...
 
 local pairs, ipairs = pairs, ipairs
 local format = format
@@ -18,10 +18,26 @@ local LOCALIZED_CLASS_NAMES_FEMALE = LOCALIZED_CLASS_NAMES_FEMALE
 local LOCALIZED_CLASS_NAMES_MALE = LOCALIZED_CLASS_NAMES_MALE
 local RAID_CLASS_COLORS = RAID_CLASS_COLORS
 
-local EnhancedOnline = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\StatusIcon-Online"
-local EnhancedOffline = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\StatusIcon-Offline"
-local EnhancedAfk = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\StatusIcon-Away"
-local EnhancedDnD = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\StatusIcon-DnD"
+local StatusIcons = {
+	Default = {
+		Online = FRIENDS_TEXTURE_ONLINE,
+		Offline = FRIENDS_TEXTURE_OFFLINE,
+		DND = FRIENDS_TEXTURE_DND,
+		AFK = FRIENDS_TEXTURE_AFK
+	},
+	Square = {
+		Online = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\Square\\Online",
+		Offline = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\Square\\Offline",
+		DND	= "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\Square\\DND",
+		AFK	= "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\Square\\AFK"
+	},
+	D3 = {
+		Online = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\D3\\Online",
+		Offline = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\D3\\Offline",
+		DND = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\D3\\DND",
+		AFK = "Interface\\AddOns\\ElvUI_EnhancedFriendsList\\Media\\Textures\\D3\\AFK"
+	}
+}
 
 local Locale = GetLocale()
 
@@ -30,7 +46,7 @@ P["enhanceFriendsList"] = {
 	-- General
 	["showBackground"] = true,
 	["showStatusIcon"] = true,
-	["enhancedTextures"] = true,
+	["statusIcons"] = "Square",
 	-- Online
 	["enhancedName"] = true,
 	["colorizeNameOnly"] = false,
@@ -96,11 +112,16 @@ function EFL:InsertOptions()
 						name = L["Show Status Icon"],
 						set = function(info, value) E.db.enhanceFriendsList.showStatusIcon = value EFL:EnhanceFriends() end
 					},
-					enhancedTextures = {
+					statusIcons = {
 						order = 3,
-						type = "toggle",
-						name = L["Enhanced Status"],
-						set = function(info, value) E.db.enhanceFriendsList.enhancedTextures = value EFL:EnhanceFriends() EFL:FriendDropdownUpdate() end
+						type = "select",
+						name = L["Status Icons Textures"],
+						values = {
+							["Default"] = "Default",
+							["Square"] = "Square",
+							["D3"] = "Diablo 3"
+						},
+						set = function(info, value) E.db.enhanceFriendsList.statusIcons = value EFL:EnhanceFriends() EFL:FriendDropdownUpdate() end
 					}
 				}
 			},
@@ -412,13 +433,7 @@ function EFL:EnhanceFriends()
 			broadcastText = nil
 
 			if connected then
-				if status == "" then
-					button.status:SetTexture(db.enhancedTextures and EnhancedOnline or FRIENDS_TEXTURE_ONLINE)
-				elseif status == CHAT_FLAG_AFK then
-					button.status:SetTexture(db.enhancedTextures and EnhancedAfk or FRIENDS_TEXTURE_AFK)
-				elseif status == CHAT_FLAG_DND then
-					button.status:SetTexture(db.enhancedTextures and EnhancedDnD or FRIENDS_TEXTURE_DND)
-				end
+				button.status:SetTexture(StatusIcons[db.statusIcons][(status == CHAT_FLAG_DND and "DND" or status == CHAT_FLAG_AFK and "AFK" or "Online")])
 
 				if not ElvCharacterDB.EnhancedFriendsList_Data[name] then
 					ElvCharacterDB.EnhancedFriendsList_Data[name] = {}
@@ -478,7 +493,7 @@ function EFL:EnhanceFriends()
 				nameColor = FRIENDS_WOW_NAME_COLOR
 				Cooperate = true
 			else
-				button.status:SetTexture(db.enhancedTextures and EnhancedOffline or FRIENDS_TEXTURE_OFFLINE)
+				button.status:SetTexture(StatusIcons[db.statusIcons].Offline)
 
 				if ElvCharacterDB.EnhancedFriendsList_Data[name] then
 					local lastSeen = ElvCharacterDB.EnhancedFriendsList_Data[name].lastSeen
@@ -617,13 +632,7 @@ end
 
 function EFL:FriendDropdownUpdate()
 	local status
-	if IsChatAFK() then
-		status = E.db.enhanceFriendsList.enhancedTextures and EnhancedAfk or FRIENDS_TEXTURE_AFK
-	elseif IsChatDND() then
-		status = E.db.enhanceFriendsList.enhancedTextures and EnhancedDnD or FRIENDS_TEXTURE_DND
-	else
-		status = E.db.enhanceFriendsList.enhancedTextures and EnhancedOnline or FRIENDS_TEXTURE_ONLINE
-	end
+	status = (StatusIcons[E.db.enhanceFriendsList.statusIcons][(IsChatDND() and "DND" or IsChatAFK() and "AFK" or "Online")])
 
 	FriendsFrameStatusDropDownStatus:SetTexture(status)
 end

@@ -1,18 +1,17 @@
 local E, L, V, P, G = unpack(ElvUI)
 local EFL = E:NewModule("EnhancedFriendsList", "AceHook-3.0")
-local EP = LibStub("LibElvUIPlugin-1.0")
-local LSM = LibStub("LibSharedMedia-3.0", true)
+local EP = E.Libs.EP
+local LSM = E.Libs.LSM
+
 local addonName = ...
 
 local unpack, pairs, ipairs = unpack, pairs, ipairs
-local format = format
+local format, sub = string.format, string.sub
 
 local GetFriendInfo = GetFriendInfo
 local GetQuestDifficultyColor = GetQuestDifficultyColor
 local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS
 local FRIENDS_BUTTON_TYPE_WOW = FRIENDS_BUTTON_TYPE_WOW
-local LOCALIZED_CLASS_NAMES_FEMALE = LOCALIZED_CLASS_NAMES_FEMALE
-local LOCALIZED_CLASS_NAMES_MALE = LOCALIZED_CLASS_NAMES_MALE
 local RAID_CLASS_COLORS = RAID_CLASS_COLORS
 
 local StatusIcons = {
@@ -45,17 +44,8 @@ local function GetLevelDiffColorHex(level, offline)
 	end
 end
 
-local localizedTable = {}
-for k, v in pairs(LOCALIZED_CLASS_NAMES_MALE) do
-	localizedTable[v] = k
-end
-
-for k, v in pairs(LOCALIZED_CLASS_NAMES_FEMALE) do
-	localizedTable[v] = k
-end
-
 local function GetClassColorHex(class, offline)
-	class = localizedTable[class]
+	class = E:UnlocalizedClassName(class)
 
 	local color = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
 	if color then
@@ -68,7 +58,7 @@ end
 local function HexToRGB(hex)
 	if not hex then return nil end
 
-	local rhex, ghex, bhex = string.sub(hex, 5, 6), string.sub(hex, 7, 8), string.sub(hex, 9, 10)
+	local rhex, ghex, bhex = sub(hex, 5, 6), sub(hex, 7, 8), sub(hex, 9, 10)
 	return {r = tonumber(rhex, 16)/225, g = tonumber(ghex, 16)/225, b = tonumber(bhex, 16)/225}
 end
 
@@ -168,7 +158,7 @@ end
 -- IconFrame
 function EFL:Update_IconFrame(button)
 	if E.db.enhanceFriendsList[button.TYPE].classIcon then
-		local classFileName = localizedTable[button.class]
+		local classFileName = E:UnlocalizedClassName(button.class)
 		if classFileName then
 			button.iconFrame:Show()
 
@@ -196,7 +186,7 @@ function EFL:Update_IconFrame(button)
 					end
 				end
 			else
-				button.iconFrame:SetBackdropBorderColor(unpack(E["media"].bordercolor))
+				button.iconFrame:SetBackdropBorderColor(unpack(E.media.bordercolor))
 			end
 		else
 			button.iconFrame:Hide()
@@ -389,7 +379,6 @@ function EFL:FriendListUpdate()
 	self:Update()
 
 	self:SecureHook("FriendsFrameStatusDropDown_Update")
-
 	self:SecureHook("HybridScrollFrame_Update", "FriendsFrame_UpdateFriends")
 	self:SecureHook("FriendsFrame_UpdateFriends", "FriendsFrame_UpdateFriends")
 end

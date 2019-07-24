@@ -1,13 +1,53 @@
-local E, L, V, P, G = unpack(ElvUI)
+local E, _, V, P, G = unpack(ElvUI)
+local L = E.Libs.ACL:GetLocale("ElvUI", E.global.general.locale or "enUS")
 local EFL = E:GetModule("EnhancedFriendsList")
+
+local format = string.format
+
+local IsAddOnLoaded = IsAddOnLoaded
 
 local function ColorizeSettingName(settingName)
 	return format("|cff1784d1%s|r", settingName)
 end
 
 function EFL:InsertOptions()
-	E.Options.args.enhanceFriendsList = {
-		order = 54,
+	local ACD = E.Libs.AceConfigDialog
+
+	if not E.Options.args.elvuiPlugins then
+		E.Options.args.elvuiPlugins = {
+			order = 50,
+			type = "group",
+			name = "|cffff7000E|r|cffe5e3e3lvUI |r|cffff7000P|r|cffe5e3e3lugins|r",
+			args = {
+				header = {
+					order = 0,
+					type = "header",
+					name = "|cffff7000E|r|cffe5e3e3lvUI |r|cffff7000P|r|cffe5e3e3lugins|r"
+				},
+				enhanceFriendsListShortcut = {
+					type = "execute",
+					name = ColorizeSettingName(L["Enhanced Friends List"]),
+					func = function()
+						if IsAddOnLoaded("ElvUI_OptionsUI") then
+							ACD:SelectGroup("ElvUI", "elvuiPlugins", "enhanceFriendsList", "general")
+						end
+					end
+				}
+			}
+		}
+	elseif not E.Options.args.elvuiPlugins.args.enhanceFriendsListShortcut then
+		E.Options.args.elvuiPlugins.args.enhanceFriendsListShortcut = {
+			type = "execute",
+			name = ColorizeSettingName(L["Enhanced Friends List"]),
+			func = function()
+				if IsAddOnLoaded("ElvUI_OptionsUI") then
+					ACD:SelectGroup("ElvUI", "elvuiPlugins", "enhanceFriendsList", "general")
+				end
+			end
+		}
+	end
+
+	E.Options.args.elvuiPlugins.args.enhanceFriendsList = {
 		type = "group",
 		childGroups = "tab",
 		name = ColorizeSettingName(L["Enhanced Friends List"]),
@@ -21,41 +61,41 @@ function EFL:InsertOptions()
 				order = 2,
 				type = "group",
 				name = L["General"],
-				get = function(info) return E.db.enhanceFriendsList[ info[#info] ] end,
-				set = function(info, value) E.db.enhanceFriendsList[ info[#info] ] = value; EFL:Update(); FriendsList_Update(); FriendsFrameStatusDropDown_Update() end,
+				get = function(info) return E.db.enhanceFriendsList[info[#info]] end,
+				set = function(info, value) E.db.enhanceFriendsList[info[#info]] = value EFL:Update() FriendsList_Update() FriendsFrameStatusDropDown_Update() end,
 				args = {
 					header = {
-						order = 0,
+						order = 1,
 						type = "header",
 						name = L["General"],
 					},
 					showBackground = {
-						order = 1,
+						order = 2,
 						type = "toggle",
 						name = L["Show Background"]
 					},
 					showStatusIcon = {
-						order = 2,
+						order = 3,
 						type = "toggle",
 						name = L["Show Status Icon"]
 					},
 					statusIcons = {
-						order = 3,
+						order = 4,
 						type = "select",
 						name = L["Status Icons Textures"],
 						values = {
-							["Default"] = L["Default"],
+							["Default"] = L["DEFAULT"],
 							["Square"] = "Square",
 							["D3"] = "Diablo 3"
 						}
 					},
 					nameFont = {
-						order = 4,
+						order = 5,
 						type = "group",
 						name = L["Name Font"],
 						guiInline = true,
-						get = function(info) return E.db.enhanceFriendsList[ info[#info] ] end,
-						set = function(info, value) E.db.enhanceFriendsList[ info[#info] ] = value; EFL:Update(); FriendsList_Update() end,
+						get = function(info) return E.db.enhanceFriendsList[info[#info]] end,
+						set = function(info, value) E.db.enhanceFriendsList[info[#info]] = value EFL:Update() FriendsList_Update() end,
 						args = {
 							nameFont = {
 								order = 1,
@@ -66,7 +106,7 @@ function EFL:InsertOptions()
 							nameFontSize = {
 								order = 2,
 								type = "range",
-								name = FONT_SIZE,
+								name = L["FONT_SIZE"],
 								min = 6, max = 22, step = 1
 							},
 							nameFontOutline = {
@@ -75,7 +115,7 @@ function EFL:InsertOptions()
 								name = L["Font Outline"],
 								desc = L["Set the font outline."],
 								values = {
-									["NONE"] = NONE,
+									["NONE"] = L["NONE"],
 									["OUTLINE"] = "OUTLINE",
 									["MONOCHROMEOUTLINE"] = "MONOCROMEOUTLINE",
 									["THICKOUTLINE"] = "THICKOUTLINE"
@@ -84,12 +124,12 @@ function EFL:InsertOptions()
 						}
 					},
 					zoneFont = {
-						order = 5,
+						order = 6,
 						type = "group",
 						name = L["Zone Font"],
 						guiInline = true,
-						get = function(info) return E.db.enhanceFriendsList[ info[#info] ] end,
-						set = function(info, value) E.db.enhanceFriendsList[ info[#info] ] = value; EFL:Update(); FriendsList_Update() end,
+						get = function(info) return E.db.enhanceFriendsList[info[#info]] end,
+						set = function(info, value) E.db.enhanceFriendsList[info[#info]] = value EFL:Update() FriendsList_Update() end,
 						args = {
 							zoneFont = {
 								order = 1,
@@ -100,7 +140,7 @@ function EFL:InsertOptions()
 							zoneFontSize = {
 								order = 2,
 								type = "range",
-								name = FONT_SIZE,
+								name = L["FONT_SIZE"],
 								min = 6, max = 22, step = 1
 							},
 							zoneFontOutline = {
@@ -109,7 +149,7 @@ function EFL:InsertOptions()
 								name = L["Font Outline"],
 								desc = L["Set the font outline."],
 								values = {
-									["NONE"] = NONE,
+									["NONE"] = L["NONE"],
 									["OUTLINE"] = "OUTLINE",
 									["MONOCHROMEOUTLINE"] = "MONOCROMEOUTLINE",
 									["THICKOUTLINE"] = "THICKOUTLINE"
@@ -123,18 +163,18 @@ function EFL:InsertOptions()
 				order = 3,
 				type = "group",
 				name = L["Online Friends"],
-				get = function(info) return E.db.enhanceFriendsList.Online[ info[#info] ] end,
-				set = function(info, value) E.db.enhanceFriendsList.Online[ info[#info] ] = value; EFL:Update(); FriendsList_Update() end,
+				get = function(info) return E.db.enhanceFriendsList.Online[info[#info]] end,
+				set = function(info, value) E.db.enhanceFriendsList.Online[info[#info]] = value EFL:Update() FriendsList_Update() end,
 				args = {
 					header = {
-						order = 0,
+						order = 1,
 						type = "header",
 						name = L["Online Friends"]
 					},
 					name = {
-						order = 1,
+						order = 2,
 						type = "group",
-						name = NAME,
+						name = L["NAME"],
 						guiInline = true,
 						args = {
 							enhancedName = {
@@ -151,15 +191,15 @@ function EFL:InsertOptions()
 						}
 					},
 					level = {
-						order = 2,
+						order = 3,
 						type = "group",
-						name = LEVEL,
+						name = L["LEVEL"],
 						guiInline = true,
 						args = {
 							level = {
 								order = 1,
 								type = "toggle",
-								name = L["Show"]
+								name = L["SHOW"]
 							},
 							levelColor = {
 								order = 2,
@@ -182,9 +222,9 @@ function EFL:InsertOptions()
 						}
 					},
 					class = {
-						order = 3,
+						order = 4,
 						type = "group",
-						name = CLASS,
+						name = L["CLASS"],
 						guiInline = true,
 						args = {
 							classText = {
@@ -206,9 +246,9 @@ function EFL:InsertOptions()
 						}
 					},
 					zone = {
-						order = 4,
+						order = 5,
 						type = "group",
-						name = ZONE,
+						name = L["ZONE"],
 						guiInline = true,
 						args = {
 							zoneText = {
@@ -279,8 +319,8 @@ function EFL:InsertOptions()
 				order = 4,
 				type = "group",
 				name = L["Offline Friends"],
-				get = function(info) return E.db.enhanceFriendsList.Offline[ info[#info] ] end,
-				set = function(info, value) E.db.enhanceFriendsList.Offline[ info[#info] ] = value; EFL:Update(); FriendsList_Update() end,
+				get = function(info) return E.db.enhanceFriendsList.Offline[info[#info]] end,
+				set = function(info, value) E.db.enhanceFriendsList.Offline[info[#info]] = value EFL:Update() FriendsList_Update() end,
 				args = {
 					header = {
 						order = 0,
@@ -290,7 +330,7 @@ function EFL:InsertOptions()
 					name = {
 						order = 1,
 						type = "group",
-						name = NAME,
+						name = L["NAME"],
 						guiInline = true,
 						args = {
 							enhancedName = {
@@ -309,13 +349,13 @@ function EFL:InsertOptions()
 					level = {
 						order = 2,
 						type = "group",
-						name = LEVEL,
+						name = L["LEVEL"],
 						guiInline = true,
 						args = {
 							level = {
 								order = 1,
 								type = "toggle",
-								name = L["Show"]
+								name = L["SHOW"]
 							},
 							levelColor = {
 								order = 2,
@@ -341,7 +381,7 @@ function EFL:InsertOptions()
 					class = {
 						order = 3,
 						type = "group",
-						name = CLASS,
+						name = L["CLASS"],
 						guiInline = true,
 						args = {
 							classText = {
@@ -359,7 +399,7 @@ function EFL:InsertOptions()
 					zone = {
 						order = 4,
 						type = "group",
-						name = ZONE,
+						name = L["ZONE"],
 						guiInline = true,
 						args = {
 							zoneText = {

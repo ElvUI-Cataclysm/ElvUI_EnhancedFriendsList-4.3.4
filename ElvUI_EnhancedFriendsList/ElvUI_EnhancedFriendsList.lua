@@ -12,7 +12,7 @@ local GetFriendInfo = GetFriendInfo
 local GetQuestDifficultyColor = GetQuestDifficultyColor
 local CLASS_ICON_TCOORDS = CLASS_ICON_TCOORDS
 local FRIENDS_BUTTON_TYPE_WOW = FRIENDS_BUTTON_TYPE_WOW
-local RAID_CLASS_COLORS = RAID_CLASS_COLORS
+local PRIEST_COLOR = RAID_CLASS_COLORS.PRIEST
 
 local StatusIcons = {
 	Default = {
@@ -38,7 +38,7 @@ local StatusIcons = {
 local function GetLevelDiffColorHex(level, offline)
 	if level ~= 0 then
 		local color = GetQuestDifficultyColor(level)
-		return offline and format("|cFF%02x%02x%02x", color.r*160, color.g*160, color.b*160) or format("|cFF%02x%02x%02x", color.r*255, color.g*255, color.b*255)
+		return offline and format("|cFF%02x%02x%02x", color.r * 160, color.g * 160, color.b * 160) or format("|cFF%02x%02x%02x", color.r * 255, color.g * 255, color.b * 255)
 	else
 		return offline and E:RGBToHex(0.49, 0.52, 0.54) or "|cFFFFFFFF"
 	end
@@ -47,9 +47,9 @@ end
 local function GetClassColorHex(class, offline)
 	class = E:UnlocalizedClassName(class)
 
-	local color = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
+	local color = E:ClassColor(class) or PRIEST_COLOR
 	if color then
-		return offline and format("|cff%02x%02x%02x", color.r*160, color.g*160, color.b*160) or format("|cff%02x%02x%02x", color.r*255, color.g*255, color.b*255)
+		return offline and format("|cff%02x%02x%02x", color.r * 160, color.g * 160, color.b * 160) or format("|cff%02x%02x%02x", color.r * 255, color.g * 255, color.b * 255)
 	else
 		return offline and E:RGBToHex(0.49, 0.52, 0.54) or "|cFFFFFFFF"
 	end
@@ -59,7 +59,7 @@ local function HexToRGB(hex)
 	if not hex then return nil end
 
 	local rhex, ghex, bhex = sub(hex, 5, 6), sub(hex, 7, 8), sub(hex, 9, 10)
-	return {r = tonumber(rhex, 16)/225, g = tonumber(ghex, 16)/225, b = tonumber(bhex, 16)/225}
+	return {r = tonumber(rhex, 16) / 225, g = tonumber(ghex, 16)/225, b = tonumber(bhex, 16) / 225}
 end
 
 function EFL:Update()
@@ -352,7 +352,7 @@ function EFL:FriendListUpdate()
 
 	if ElvCharacterDB.EnhancedFriendsList_Data then
 		for i = 1, GetNumFriends() do
-			local name, level, class, area, connected, status = GetFriendInfo(i)
+			local name, level, class, area = GetFriendInfo(i)
 			if ElvCharacterDB.EnhancedFriendsList_Data[name] then
 				local data = ElvCharacterDB.EnhancedFriendsList_Data[name]
 				if not EnhancedFriendsListDB[E.myrealm][name] then

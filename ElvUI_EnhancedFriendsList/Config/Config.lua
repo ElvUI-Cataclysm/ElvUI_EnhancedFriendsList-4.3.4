@@ -1,86 +1,43 @@
 local E, _, V, P, G = unpack(ElvUI)
-local L = E.Libs.ACL:GetLocale("ElvUI", E.global.general.locale or "enUS")
+local L = E.Libs.ACL:GetLocale("ElvUI", E.global.general.locale)
 local EFL = E:GetModule("EnhancedFriendsList")
-
-local format = string.format
 
 local IsAddOnLoaded = IsAddOnLoaded
 
-local function ColorizeSettingName(settingName)
-	return format("|cff1784d1%s|r", settingName)
-end
-
 function EFL:InsertOptions()
-	local ACD = E.Libs.AceConfigDialog
-
 	if not E.Options.args.elvuiPlugins then
 		E.Options.args.elvuiPlugins = {
 			order = 50,
 			type = "group",
 			name = "|cffff7000E|r|cffe5e3e3lvUI |r|cffff7000P|r|cffe5e3e3lugins|r",
-			args = {
-				header = {
-					order = 0,
-					type = "header",
-					name = "|cffff7000E|r|cffe5e3e3lvUI |r|cffff7000P|r|cffe5e3e3lugins|r"
-				},
-				enhanceFriendsListShortcut = {
-					type = "execute",
-					name = ColorizeSettingName(L["Enhanced Friends List"]),
-					func = function()
-						if IsAddOnLoaded("ElvUI_OptionsUI") then
-							ACD:SelectGroup("ElvUI", "elvuiPlugins", "enhanceFriendsList", "general")
-						end
-					end
-				}
-			}
-		}
-	elseif not E.Options.args.elvuiPlugins.args.enhanceFriendsListShortcut then
-		E.Options.args.elvuiPlugins.args.enhanceFriendsListShortcut = {
-			type = "execute",
-			name = ColorizeSettingName(L["Enhanced Friends List"]),
-			func = function()
-				if IsAddOnLoaded("ElvUI_OptionsUI") then
-					ACD:SelectGroup("ElvUI", "elvuiPlugins", "enhanceFriendsList", "general")
-				end
-			end
+			args = {}
 		}
 	end
 
 	E.Options.args.elvuiPlugins.args.enhanceFriendsList = {
 		type = "group",
 		childGroups = "tab",
-		name = ColorizeSettingName(L["Enhanced Friends List"]),
+		name = "|cffff7000E|r|cffe5e3e3nhanced |r|cffff7000F|r|cffe5e3e3riends |r|cffff7000L|r|cffe5e3e3ist",
 		args = {
-			header = {
-				order = 1,
-				type = "header",
-				name = L["Enhanced Friends List"]
-			},
 			general = {
-				order = 2,
+				order = 1,
 				type = "group",
 				name = L["General"],
 				get = function(info) return E.db.enhanceFriendsList[info[#info]] end,
 				set = function(info, value) E.db.enhanceFriendsList[info[#info]] = value EFL:Update() FriendsList_Update() FriendsFrameStatusDropDown_Update() end,
 				args = {
-					header = {
-						order = 1,
-						type = "header",
-						name = L["General"],
-					},
 					showBackground = {
-						order = 2,
+						order = 1,
 						type = "toggle",
 						name = L["Show Background"]
 					},
 					showStatusIcon = {
-						order = 3,
+						order = 2,
 						type = "toggle",
 						name = L["Show Status Icon"]
 					},
 					statusIcons = {
-						order = 4,
+						order = 3,
 						type = "select",
 						name = L["Status Icons Textures"],
 						values = {
@@ -90,7 +47,7 @@ function EFL:InsertOptions()
 						}
 					},
 					nameFont = {
-						order = 5,
+						order = 4,
 						type = "group",
 						name = L["Name Font"],
 						guiInline = true,
@@ -124,7 +81,7 @@ function EFL:InsertOptions()
 						}
 					},
 					zoneFont = {
-						order = 6,
+						order = 5,
 						type = "group",
 						name = L["Zone Font"],
 						guiInline = true,
@@ -160,19 +117,14 @@ function EFL:InsertOptions()
 				}
 			},
 			Online = {
-				order = 3,
+				order = 2,
 				type = "group",
-				name = L["Online Friends"],
+				name = L["SHOW_TOAST_ONLINE_TEXT"],
 				get = function(info) return E.db.enhanceFriendsList.Online[info[#info]] end,
 				set = function(info, value) E.db.enhanceFriendsList.Online[info[#info]] = value EFL:Update() FriendsList_Update() end,
 				args = {
-					header = {
-						order = 1,
-						type = "header",
-						name = L["Online Friends"]
-					},
 					name = {
-						order = 2,
+						order = 1,
 						type = "group",
 						name = L["NAME"],
 						guiInline = true,
@@ -191,7 +143,7 @@ function EFL:InsertOptions()
 						}
 					},
 					level = {
-						order = 3,
+						order = 2,
 						type = "group",
 						name = L["LEVEL"],
 						guiInline = true,
@@ -222,7 +174,7 @@ function EFL:InsertOptions()
 						}
 					},
 					class = {
-						order = 4,
+						order = 3,
 						type = "group",
 						name = L["CLASS"],
 						guiInline = true,
@@ -246,7 +198,7 @@ function EFL:InsertOptions()
 						}
 					},
 					zone = {
-						order = 5,
+						order = 4,
 						type = "group",
 						name = L["ZONE"],
 						guiInline = true,
@@ -318,15 +270,10 @@ function EFL:InsertOptions()
 			Offline = {
 				order = 4,
 				type = "group",
-				name = L["Offline Friends"],
+				name = L["SHOW_TOAST_OFFLINE_TEXT"],
 				get = function(info) return E.db.enhanceFriendsList.Offline[info[#info]] end,
 				set = function(info, value) E.db.enhanceFriendsList.Offline[info[#info]] = value EFL:Update() FriendsList_Update() end,
 				args = {
-					header = {
-						order = 0,
-						type = "header",
-						name = L["Offline Friends"]
-					},
 					name = {
 						order = 1,
 						type = "group",

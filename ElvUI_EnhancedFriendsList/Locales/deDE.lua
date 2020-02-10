@@ -1,5 +1,6 @@
 -- German localization file for deDE.
 local L = ElvUI[1].Libs.ACL:NewLocale("ElvUI", "deDE")
+if not L then return end
 
 L["LEVEL_TEMPLATE"] = "Level %s"
 L["SHORT_LEVEL_TEMPLATE"] = "L %s"
@@ -17,8 +18,6 @@ L["Last Seen"] = true
 L["Last seen"] = true
 L["Level Range Color"] = true
 L["Level Text"] = true
-L["Offline Friends"] = true
-L["Online Friends"] = true
 L["Same Zone Color"] = true
 L["Same Zone"] = true
 L["Short Level"] = true
@@ -29,4 +28,6 @@ L["Zone Font"] = true
 L["Zone Text"] = true
 
 -- Global Strings
-L["ZONE"] = true
+L["SHOW_TOAST_OFFLINE_TEXT"] = "Freunde offline"
+L["SHOW_TOAST_ONLINE_TEXT"] = "Freunde online"
+L["ZONE"] = "Zone"

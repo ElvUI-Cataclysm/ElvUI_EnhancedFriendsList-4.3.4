@@ -1,5 +1,6 @@
 -- Russian localization file for ruRU.
 local L = ElvUI[1].Libs.ACL:NewLocale("ElvUI", "ruRU")
+if not L then return end
 
 L["LEVEL_TEMPLATE"] = "%s-го уровня"
 L["SHORT_LEVEL_TEMPLATE"] = "%s-го ур."
@@ -17,8 +18,6 @@ L["Last Seen"] = "Последний вход"
 L["Last seen"] = "Не всети"
 L["Level Range Color"] = true
 L["Level Text"] = "Текст уровня"
-L["Offline Friends"] = true
-L["Online Friends"] = true
 L["Same Zone Color"] = true
 L["Same Zone"] = true
 L["Short Level"] = "Короткий текст уровеня"
@@ -29,4 +28,6 @@ L["Zone Font"] = "Шрифт локации"
 L["Zone Text"] = "Текст локации"
 
 -- Global Strings
-L["ZONE"] = true
+L["SHOW_TOAST_OFFLINE_TEXT"] = "Друзья не в сети"
+L["SHOW_TOAST_ONLINE_TEXT"] = "Друзья в сети"
+L["ZONE"] = "Игровая зона"

@@ -6,6 +6,7 @@
 ## RequiredDeps: ElvUI
 
 Locales\Load_Locales.xml
+Media\Load_Media.xml
 Settings\Load_Settings.xml
 ElvUI_EnhancedFriendsList.lua
 Config\Load_Config.xml
